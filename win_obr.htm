@@ -1,0 +1,72 @@
+<html>
+<head>
+  <title>Vložení obrázku</title>
+  <link rel="stylesheet" href="style.css"/>
+  <meta http-equiv="Content-Type" content="text/html; charset=windows-1250"/>
+  <script>
+  function getInfoAndUpdate()
+  {
+    var callerWindowObj = dialogArguments;
+    callerWindowObj.imageAlt = formImageAlt.value;
+    callerWindowObj.imageSrc = formImageSrc.value;
+
+    callerWindowObj.border = formImageBorder.value;
+    callerWindowObj.imageAlign = formImageAlign.value;
+
+    callerWindowObj.addImageToPage();
+    window.close();
+  }
+  </script>
+</head>
+
+<body>
+
+<div class="nadpis">Vložení obrázku</div>
+
+<table class="obsah" cellpadding="3">
+  <tr>
+    <td style="width:85px">Zdroj obrázku:</td>
+    <td><input type="file" id="formImageSrc" style="width:190px"></td>
+  </tr>
+  <tr>
+    <td>Alternativní text:</td>
+    <td><input type="text" id="formImageAlt" style="width:190px"></td>
+  </tr>
+  <tr>
+    <td>Ohraničení:</td>
+    <td>
+      <select id="formImageBorder">
+        <option selected="selected" value="0">Žádné</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
+        <option value="10">10</option>
+      </select>
+    </td>
+  </tr>
+    <tr>
+    <td>Zarovnání:</td>
+    <td>
+      <select id="formImageAlign">
+        <option selected="selected" value="left">Vlevo</option>
+        <option value="right">Vpravo</option>
+        <option value="baseline">Na základnu</option>
+        <option value="bottom">Dolů</option>
+        <option value="middle">Na střed</option>
+        <option value="top">Nahoru</option>
+      </select>
+    </td>
+  </tr>
+</table>
+
+<input type="button" value="Vložit obrázek" style="width:100px" onclick='getInfoAndUpdate();'>
+<input type="button" value="Zavřít" onclick='window.close();'>
+
+</body>
+</html>

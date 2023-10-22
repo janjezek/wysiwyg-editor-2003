@@ -1,0 +1,113 @@
+<html>
+
+<head>
+  <title>WYSIWYG Editor</title>
+  <script language="javascript" src="editor.js"></script>
+  <meta http-equiv="Content-Type" content="text/html; charset=windows-1250">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body onload="Init()">
+
+<table id="tblCtrls" style="width: 550px; background-color: #D6D3CE">
+  <tr>
+    <td class="tdClass">
+      <img alt="Vyjmout" class="butClass" src="cut.gif" onmouseover="selOn(this)" onmouseout="selOff(this)" onmousedown="selDown(this)" onmouseup="selUp(this)" onclick="edit('Cut')">
+      <img alt="Kopírovat" class="butClass" src="copy.gif" onmouseover="selOn(this)" onmouseout="selOff(this)" onmousedown="selDown(this)" onmouseup="selUp(this)" onclick="edit('Copy')">
+      <img alt="Vložit" class="butClass" src="paste.gif" onmouseover="selOn(this)" onmouseout="selOff(this)" onmousedown="selDown(this)" onmouseup="selUp(this)" onclick="edit('Paste')">
+
+      <img src="separator.gif" alt="">
+
+      <img alt="Zpět" class="butClass" src="undo.gif" onmouseover="selOn(this)" onmouseout="selOff(this)" onmousedown="selDown(this)" onmouseup="selUp(this)" onclick="edit('Undo')">
+      <img alt="Znovu" class="butClass" src="redo.gif" onmouseover="selOn(this)" onmouseout="selOff(this)" onmousedown="selDown(this)" onmouseup="selUp(this)" onclick="edit('Redo')">
+
+      <img src="separator.gif" alt="">
+
+      <img alt="Tučné" class="butClass" src="bold.gif" onmouseover="selOn(this)" onmouseout="selOff(this)" onmousedown="selDown(this)" onmouseup="selUp(this)" onclick="edit('bold')">
+      <img alt="Kurzíva" class="butClass" src="italic.gif" onmouseover="selOn(this)" onmouseout="selOff(this)" onmousedown="selDown(this)" onmouseup="selUp(this)" onclick="edit('italic')">
+      <img alt="Podtržené" class="butClass" src="underline.gif" onmouseover="selOn(this)" onmouseout="selOff(this)" onmousedown="selDown(this)" onmouseup="selUp(this)" onclick="edit('underline')">
+
+      <img src="separator.gif" alt="">
+
+      <img alt="Zarovnat vlevo" class="butClass" src="left.gif" onmouseover="selOn(this)" onmouseout="selOff(this)" onmousedown="selDown(this)" onmouseup="selUp(this)" onclick="edit('justifyleft')">
+      <img alt="Zarovnat na střed" class="butClass" src="center.gif" onmouseover="selOn(this)" onmouseout="selOff(this)" onmousedown="selDown(this)" onmouseup="selUp(this)" onclick="edit('justifycenter')">
+      <img alt="Zarovnat vpravo" class="butClass" src="right.gif" onmouseover="selOn(this)" onmouseout="selOff(this)" onmousedown="selDown(this)" onmouseup="selUp(this)" onclick="edit('justifyright')">
+
+      <img src="separator.gif" alt="">
+
+      <img alt="Číslování" class="butClass" src="ordlist.gif" onmouseover="selOn(this)" onmouseout="selOff(this)" onmousedown="selDown(this)" onmouseup="selUp(this)" onclick="edit('insertorderedlist')">
+      <img alt="Odrážky" class="butClass" src="bullist.gif" onmouseover="selOn(this)" onmouseout="selOff(this)" onmousedown="selDown(this)" onmouseup="selUp(this)" onclick="edit('insertunorderedlist')">
+
+      <img src="separator.gif" alt="">
+
+      <img alt="Zmenšit odsazení" class="butClass" src="outdent.gif" onmouseover="selOn(this)" onmouseout="selOff(this)" onmousedown="selDown(this)" onmouseup="selUp(this)" onclick="edit('Outdent')">
+      <img alt="Zvětšit odsazení" class="butClass" src="indent.gif" onmouseover="selOn(this)" onmouseout="selOff(this)" onmousedown="selDown(this)" onmouseup="selUp(this)" onclick="edit('Indent')">
+
+      <br/>
+
+      <img alt="Vložit odkaz" class="butClass" src="link.gif" onmouseover="selOn(this)" onmouseout="selOff(this)" onmousedown="selDown(this)" onmouseup="selUp(this)" onclick="insert('createlink')">
+      <img alt="Obrázek" class="butClass" src="image.gif" onmouseover="selOn(this)" onmouseout="selOff(this)" onmousedown="selDown(this)" onmouseup="selUp(this)" onclick="image()">
+      <img alt="Vodorovná čára" class="butClass" src="rule.gif" onmouseover="selOn(this)" onmouseout="selOff(this)" onmousedown="selDown(this)" onmouseup="selUp(this)" onclick="edit('inserthorizontalrule')">
+
+      <img src="separator.gif" alt="">
+
+      <img alt="Barva písma" class="butClass" src="forecol.gif" onmouseover="selOn(this)" onmouseout="selOff(this)" onmousedown="selDown(this)" onmouseup="selUp(this)" onclick="color('ForeColor')">
+      <img alt="Barva pozadí" class="butClass" src="bgcol.gif" onmouseover="selOn(this)" onmouseout="selOff(this)" onmousedown="selDown(this)" onmouseup="selUp(this)" onclick="color('BackColor')">
+
+      <img src="separator.gif" alt="">
+
+      <img alt="Vložit symbol" class="butClass" src="symbol.gif" onmouseover="selOn(this)" onmouseout="selOff(this)" onmousedown="selDown(this)" onmouseup="selUp(this)" onclick="symbol()">
+      <img alt="Vytvořit tabulku" class="butClass" src="table.gif" onmouseover="selOn(this)" onmouseout="selOff(this)" onmousedown="selDown(this)" onmouseup="selUp(this)" style="margin-right: 1" onclick="table()">
+      <img alt="Preview" class="butClass" src="preview.gif" onmouseover="selOn(this)" onmouseout="selOff(this)" onmousedown="selDown(this)" onmouseup="selUp(this)" onclick="preview()">
+
+      <img src="separator.gif" alt="">
+
+      <img alt="Horní index" class="butClass" src="superscript.gif" onmouseover="selOn(this)" onmouseout="selOff(this)" onmousedown="selDown(this)" onmouseup="selUp(this)" onclick="edit('SuperScript')">
+      <img alt="Dolní index" class="butClass" src="subscript.gif" onmouseover="selOn(this)" onmouseout="selOff(this)" onmousedown="selDown(this)" onmouseup="selUp(this)" onclick="edit('SubScript')">
+    </td>
+  </tr>
+</table>
+
+<iframe id="iView" style="width: 550px; height:205px"></iframe>
+
+<table style="width: 550px; background-color: #D6D3CE">
+  <tr>
+    <td class="tdClass" style="width: 80%">
+      <select name="selFont" onchange="font(this.options[this.selectedIndex].value)">
+        <option value="">Font</option>
+        <option value="Arial">Arial</option>
+        <option value="Courier">Courier</option>
+        <option value="Sans Serif">Sans Serif</option>
+        <option value="Tahoma">Tahoma</option>
+        <option value="Verdana">Verdana</option>
+        <option value="Wingdings">Wingdings</option>
+      </select>
+      <select name="selSize" onchange="textsize(this.options[this.selectedIndex].value)">
+        <option value="">Velikost</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+      </select>
+      <select name="selHeading" onchange="nadpis(this.options[this.selectedIndex].value)">
+        <option value="">Formát</option>
+        <option value="<H1>">Odstavec H1</option>
+        <option value="<H2>">Odstavec H2</option>
+        <option value="<H3>">Odstavec H3</option>
+        <option value="<H4>">Odstavec H4</option>
+        <option value="<H5>">Odstavec H5</option>
+        <option value="<H6>">Odstavec H6</option>
+        <option value="<PRE>">Preformated</option>
+      </select>
+    </td>
+    <td class="tdClass" style="width: 20%; text-align: right; padding-right: 6px">
+      <img alt="Odstranit formátování" class="butClass" src="delete.gif" onmouseover="selOn(this)" onmouseout="selOff(this)" onmousedown="selDown(this)" onmouseup="selUp(this)" onclick="format()">
+      <img alt="Přepnout mód" class="butClass" src="mode.gif" onmouseover="selOn(this)" onmouseout="selOff(this)" onmousedown="selDown(this)" onmouseup="selUp(this)" onclick="reset()">
+    </td>
+  </tr>
+</table>
+
+</body>
+</html>

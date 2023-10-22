@@ -1,0 +1,47 @@
+.nadpis {
+ font-family: arial;
+ font-weight: bold;
+ font-size: 12px;
+ color: #FFFFFF;
+ padding: 2px;
+ padding-left: 5px;
+ border: black 1px solid;
+ background-color: #004070;
+ width: 100%
+}
+
+.obsah {
+ color: #505050;
+ font-family: arial;
+ margin-top: 10px;
+ margin-bottom: 10px;
+ font-size: 11px;
+ border: black 1px solid;
+ background-color: #E8E8E8;
+ width: 100%
+}
+
+input, select {
+	font-family: arial;
+ font-size: 11px;
+ width: 70px;
+ color: #303430;
+}
+
+body {
+	margin: 15px
+}
+
+/*new*/
+
+.butClass
+{
+ border: 1px solid;
+ border-color: #D6D3CE;
+}
+
+.tdClass
+{
+ padding-left: 3px;
+ padding-top:3px;
+}
